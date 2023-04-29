@@ -6,7 +6,7 @@
 #    By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 13:22:35 by nadesjar          #+#    #+#              #
-#    Updated: 2023/04/26 14:35:32 by dracken24        ###   ########.fr        #
+#    Updated: 2023/04/29 13:59:02 by dracken24        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJS			= $(patsubst $(P_SRCS)%.cpp, $(P_OBJS)%.o, $(FILES))
 
 CC				= c++
 
-CFLAGS			= -Wall -Werror -Wextra -std=c++98 -Wno-unused-parameter -Wno-unused-variable
+CFLAGS			= -Wall -Werror -Wextra -std=c++98
 
 NAME			= btc
 

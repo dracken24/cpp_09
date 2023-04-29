@@ -6,7 +6,7 @@
 /*   By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:43:35 by dracken24         #+#    #+#             */
-/*   Updated: 2023/04/27 18:16:47 by dracken24        ###   ########.fr       */
+/*   Updated: 2023/04/29 13:46:37 by dracken24        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define BITCOINEXCHANGE_HPP
 
 # include <iostream>
-# include <cstring>
 # include <map>
 # include <string>
 
@@ -49,7 +48,7 @@ typedef signed long long sint64;
 
 // Floating point types
 typedef float fl32;
-typedef double dbl64;
+typedef fl32 dbl64;
 
 // Boolean types
 typedef char bl8;
@@ -76,7 +75,7 @@ class BitcoinExchange
 	//**                     		GETTERS    	     		              **//
 	//**********************************************************************//
 
-		double	GetChangeNbr(std::string date) const;
+		fl32	GetChangeNbr(std::string date) const;
 
 	//**********************************************************************//
 	//**                          PUBLIC METHODS                          **//
@@ -91,6 +90,8 @@ class BitcoinExchange
 		std::map<std::string, std::string> _dataBase;
 };
 
+
+// no member function for open file and print messages
 FILE	*MainOpenFiles(BitcoinExchange *converter, std::string fileName);
 void	PrintMesg(std::string errorMsg, std::string color, bl8 flag);
 
