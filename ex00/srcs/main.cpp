@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nadesjar <dracken24@gmail.com>             +#+  +:+       +#+        */
+/*   By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 19:36:23 by dracken24         #+#    #+#             */
-/*   Updated: 2023/04/29 22:40:04 by nadesjar         ###   ########.fr       */
+/*   Updated: 2023/04/30 13:45:00 by dracken24        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	PrintMesg(std::string errorMsg, std::string color, bl8 flag)
 	}
 	else
 	{
-		throw std::runtime_error(error);
+		std::cerr << error << std::endl;
+		exit(-1);
 	}
 }
 

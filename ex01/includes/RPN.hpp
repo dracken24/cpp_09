@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nadesjar <dracken24@gmail.com>             +#+  +:+       +#+        */
+/*   By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 23:03:03 by nadesjar          #+#    #+#             */
-/*   Updated: 2023/04/30 00:56:39 by nadesjar         ###   ########.fr       */
+/*   Updated: 2023/04/30 12:16:04 by dracken24        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <stack>
+# include <string>
 
 # define true 1
 # define false 0
@@ -32,6 +33,7 @@
 # define T_MAGENTA "\033[35m"
 # define T_CYAN "\033[34m"
 # define T_WHITE "\033[37m"
+# define T_RESET "\033[0m"
 
 // int
 typedef int int32;
@@ -61,31 +63,26 @@ class RPN
 	//**                     Constructors / Destructor                    **//
 	//**********************************************************************//
 	public:
-		RPN(std::string equation, int32 nbr);
+		RPN(void);
 		~RPN(void);
 		RPN(RPN const &copy);
 		RPN	&operator=(RPN const &copy);
-
-	private:
-		RPN(void);
-
-	//**********************************************************************//
-	//**                     		SETTERS    	     		              **//
-	//**********************************************************************//
-
-	//**********************************************************************//
-	//**                     		GETTERS    	     		              **//
-	//**********************************************************************//
 
 	//**********************************************************************//
 	//**                          PUBLIC METHODS                          **//
 	//**********************************************************************//
 
+		int32   CalculRpn(const std::string &rpnExpression);
+		void	PrintMesg(std::string errorMsg, std::string color, bl8 flag);
+
+	private:
+		void	CheckEntry(std::string expression);
+
 	//**********************************************************************//
 	//**                          MEMBERS VARS	                          **//
 	//**********************************************************************//
 	private:
-		std::stack<int32>	_equation;
+		std::stack<int32>	_stack;
 };
 
 #endif

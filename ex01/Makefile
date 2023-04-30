@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nadesjar <dracken24@gmail.com>             +#+  +:+       +#+         #
+#    By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/29 22:58:04 by nadesjar          #+#    #+#              #
-#    Updated: 2023/04/30 00:02:29 by nadesjar         ###   ########.fr        #
+#    Updated: 2023/04/30 02:59:42 by dracken24        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@ P_OBJS 		= ./objs/
 P_SRCS		= ./srcs/
 P_INCL		= ./includes/
 
-FILES			= $(P_SRCS)main.cpp \
+FILES			= $(P_SRCS)main.cpp $(P_SRCS)RPN.cpp  \
 
 OBJS			= $(patsubst $(P_SRCS)%.cpp, $(P_OBJS)%.o, $(FILES))
 
 CC				= c++
 
-CFLAGS			= -Wall -Werror -Wextra -std=c++98
+CFLAGS			= -Wall -Werror -Wextra -std=c++98 -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function
 
 NAME			= RPN
 
@@ -34,6 +34,11 @@ $(NAME): $(OBJS)
 # --------------------------- Recompilation Headers --------------------------- #
 
 $(P_OBJS)main.o:	$(P_SRCS)main.cpp $(P_INCL)RPN.hpp
+	@mkdir -p $(P_OBJS)
+	@$(CC) $(CFLAGS) -I. -c $< -o $@
+	@printf "$G■"
+
+$(P_OBJS)RPN.o:	$(P_SRCS)RPN.cpp $(P_INCL)RPN.hpp
 	@mkdir -p $(P_OBJS)
 	@$(CC) $(CFLAGS) -I. -c $< -o $@
 	@printf "$G■"

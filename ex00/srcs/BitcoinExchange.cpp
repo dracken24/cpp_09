@@ -6,7 +6,7 @@
 /*   By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:14:20 by dracken24         #+#    #+#             */
-/*   Updated: 2023/04/29 13:59:48 by dracken24        ###   ########.fr       */
+/*   Updated: 2023/04/30 13:47:38 by dracken24        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,9 @@ FILE	*BitcoinExchange::OpenFiles(std::string const &filename) const
 		FILE *file = fopen(filename.c_str(), "r");
 		if (file == nullptr)
 		{
-			throw std::runtime_error("Unable to open configuration file " + filename);
+			// std::string error =  filename;
+			std::cerr << "Unable to open configuration file " + filename << std::endl;
+			exit(-1);
 		}
 		return file;
 	}
