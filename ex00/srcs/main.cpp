@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+        */
+/*   By: nadesjar <dracken24@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 19:36:23 by dracken24         #+#    #+#             */
-/*   Updated: 2023/04/29 13:48:30 by dracken24        ###   ########.fr       */
+/*   Updated: 2023/04/29 22:40:04 by nadesjar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,7 +205,7 @@ void	ConvertBitcoin(BitcoinExchange *converter, FILE *file)
 int		main(int32 argc, char **argv)
 {
 	BitcoinExchange					converter;
-	FILE	*openFile;
+	FILE	*openFile = nullptr;
 
 	if (argc != 2)	// check entry
 	{

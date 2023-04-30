@@ -1,11 +1,11 @@
 set echo on
 
-echo  "\033[32mBuilding BitcoinExchange...\n"
+echo  "\033[32mBuilding RPN...\n"
 
 alias pupIn='cd'
 alias popOut='cd ..'
 
-pupIn ex00
+pupIn ex01
 make
 popOut
 

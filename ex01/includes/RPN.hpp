@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nadesjar <dracken24@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 13:43:35 by dracken24         #+#    #+#             */
-/*   Updated: 2023/04/29 22:39:31 by nadesjar         ###   ########.fr       */
+/*   Created: 2023/04/29 23:03:03 by nadesjar          #+#    #+#             */
+/*   Updated: 2023/04/30 00:56:39 by nadesjar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BITCOINEXCHANGE_HPP
-# define BITCOINEXCHANGE_HPP
+#ifndef RPN_HPP
+# define RPN_HPP
 
 # include <iostream>
-# include <map>
-# include <string>
+# include <stack>
 
 # define true 1
 # define false 0
@@ -56,47 +55,37 @@ typedef fl32 dbl64;
 // Boolean types
 typedef char bl8;
 
-class BitcoinExchange
+class RPN
 {
 	//**********************************************************************//
 	//**                     Constructors / Destructor                    **//
 	//**********************************************************************//
 	public:
-		BitcoinExchange(void);
-		~BitcoinExchange(void);
-		
-		BitcoinExchange(BitcoinExchange const &copy);
-		BitcoinExchange &operator=(BitcoinExchange const &copy);
+		RPN(std::string equation, int32 nbr);
+		~RPN(void);
+		RPN(RPN const &copy);
+		RPN	&operator=(RPN const &copy);
+
+	private:
+		RPN(void);
 
 	//**********************************************************************//
 	//**                     		SETTERS    	     		              **//
 	//**********************************************************************//
 
-		void	SetDataBase(std::string fileName);
-
 	//**********************************************************************//
 	//**                     		GETTERS    	     		              **//
 	//**********************************************************************//
-
-		fl32	GetChangeNbr(std::string date) const;
 
 	//**********************************************************************//
 	//**                          PUBLIC METHODS                          **//
 	//**********************************************************************//
 
-		FILE	*OpenFiles(std::string const &filename) const;
-
 	//**********************************************************************//
 	//**                          MEMBERS VARS	                          **//
 	//**********************************************************************//
 	private:
-		std::map<std::string, std::string> _dataBase;
+		std::stack<int32>	_equation;
 };
 
-
-// no member function for open file and print messages
-FILE	*MainOpenFiles(BitcoinExchange *converter, std::string fileName);
-void	PrintMesg(std::string errorMsg, std::string color, bl8 flag);
-
 #endif
-
