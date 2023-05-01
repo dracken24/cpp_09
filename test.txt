@@ -1,5 +1,5 @@
 -trouver moyenne
--envoyer le moitier dans la meme function recurssive
+-envoyer la moitier dans la meme function recurssive
 -de meme pour l,autre moitier
 -quand reste 2, swap ou pas
 -assembler en remonttant
@@ -11,5 +11,9 @@
 
 if ((0) > (last)) = b + A;
 else = A + B;
+
+(2 8 12)(16 22 24)
+
+2 8 12 16 22 34
 
 
