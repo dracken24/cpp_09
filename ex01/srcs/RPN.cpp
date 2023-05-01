@@ -6,7 +6,7 @@
 /*   By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 23:03:00 by nadesjar          #+#    #+#             */
-/*   Updated: 2023/04/30 13:41:59 by dracken24        ###   ########.fr       */
+/*   Updated: 2023/04/30 17:22:19 by dracken24        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,7 @@ void	RPN::CheckEntry(std::string expression)
 }
 
 // Print message in std or std error with choice color
-void	RPN::PrintMesg(std::string errorMsg, std::string color, bl8 flag)
+void	RPN::PrintMesg(std::string errorMsg, std::string color, bl8 flag) const
 {
 	std::string error = color;
 	error += errorMsg;

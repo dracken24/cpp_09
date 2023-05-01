@@ -5,7 +5,7 @@ echo  "\033[32mBuilding RPN...\n"
 alias pupIn='cd'
 alias popOut='cd ..'
 
-pupIn ex01
+pupIn ex02
 make
 popOut
 

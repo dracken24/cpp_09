@@ -133,7 +133,8 @@
     "iomanip": "cpp",
     "mutex": "cpp",
     "shared_mutex": "cpp",
-    "typeindex": "cpp"
+    "typeindex": "cpp",
+    "list": "cpp"
   },
   "C_Cpp_Runner.msvcBatchPath": "",
   "C_Cpp_Runner.cCompilerPath": "clang",

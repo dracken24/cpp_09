@@ -6,7 +6,7 @@
 /*   By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 23:03:03 by nadesjar          #+#    #+#             */
-/*   Updated: 2023/04/30 12:16:04 by dracken24        ###   ########.fr       */
+/*   Updated: 2023/04/30 17:57:56 by dracken24        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef signed long long sint64;
 
 // Floating point types
 typedef float fl32;
-typedef fl32 dbl64;
+typedef double dbl64;
 
 // Boolean types
 typedef char bl8;
@@ -73,7 +73,7 @@ class RPN
 	//**********************************************************************//
 
 		int32   CalculRpn(const std::string &rpnExpression);
-		void	PrintMesg(std::string errorMsg, std::string color, bl8 flag);
+		void	PrintMesg(std::string errorMsg, std::string color, bl8 flag) const;
 
 	private:
 		void	CheckEntry(std::string expression);

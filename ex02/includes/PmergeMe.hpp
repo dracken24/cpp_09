@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 13:43:35 by dracken24         #+#    #+#             */
-/*   Updated: 2023/04/30 17:58:06 by dracken24        ###   ########.fr       */
+/*   Created: 2023/04/30 14:08:21 by dracken24         #+#    #+#             */
+/*   Updated: 2023/04/30 19:02:42 by dracken24        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BITCOINEXCHANGE_HPP
-# define BITCOINEXCHANGE_HPP
+#ifndef PMERGEME_HPP
+# define PMERGEME_HPP
 
 # include <iostream>
-# include <map>
-# include <string>
+# include <vector>
+# include <list>
 
 # define true 1
 # define false 0
@@ -56,47 +56,48 @@ typedef double dbl64;
 // Boolean types
 typedef char bl8;
 
-class BitcoinExchange
+class PmergeMe
 {
 	//**********************************************************************//
 	//**                     Constructors / Destructor                    **//
 	//**********************************************************************//
 	public:
-		BitcoinExchange(void);
-		~BitcoinExchange(void);
-		
-		BitcoinExchange(BitcoinExchange const &copy);
-		BitcoinExchange &operator=(BitcoinExchange const &copy);
+		PmergeMe(void);
+		~PmergeMe(void);
+		PmergeMe(PmergeMe const &copy);
+		PmergeMe	&operator=(PmergeMe const &copy);
 
 	//**********************************************************************//
 	//**                     		SETTERS    	     		              **//
 	//**********************************************************************//
 
-		void	SetDataBase(std::string fileName);
+		void	SetContainers(int32 argc, char **argv);
 
 	//**********************************************************************//
 	//**                     		GETTERS    	     		              **//
 	//**********************************************************************//
 
-		fl32	GetChangeNbr(std::string date) const;
+
 
 	//**********************************************************************//
 	//**                          PUBLIC METHODS                          **//
 	//**********************************************************************//
 
-		FILE	*OpenFiles(std::string const &filename) const;
+		void				PrintMesg(std::string errorMsg, std::string color, bl8 flag) const;
+		void				SortNumbers(void);
+		void				PrintContainers(void) const;
+
+		std::vector<uint32>	SortNbrs(std::vector<uint32> myVector, int i);
+
+	private:
+		void				CheckEntry(int32 argc, char **argv); 
 
 	//**********************************************************************//
 	//**                          MEMBERS VARS	                          **//
 	//**********************************************************************//
 	private:
-		std::map<std::string, std::string> _dataBase;
+		std::vector<uint32>	_myVector;
+		std::list<uint32>	_myList;
 };
 
-
-// no member function for open file and print messages
-FILE	*MainOpenFiles(BitcoinExchange *converter, std::string fileName);
-void	PrintMesg(std::string errorMsg, std::string color, bl8 flag);
-
 #endif
-
