@@ -1,4 +1,15 @@
-date | value
-2005-02-02 | 0.1
-2011-09-14 | 390.57
-2011-01-03 | 1
+-trouver moyenne
+-envoyer le moitier dans la meme function recurssive
+-de meme pour l,autre moitier
+-quand reste 2, swap ou pas
+-assembler en remonttant
+
+24 2 12 16 8 22
+(2 12 8)(24 16 22)
+(2)(12 8)(24)(16 22)
+(2)(8 12)(24)(16 22)
+
+if ((0) > (last)) = b + A;
+else = A + B;
+
+
