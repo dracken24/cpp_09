@@ -6,7 +6,7 @@
 /*   By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 14:02:08 by dracken24         #+#    #+#             */
-/*   Updated: 2023/04/30 18:42:39 by dracken24        ###   ########.fr       */
+/*   Updated: 2023/05/01 14:06:05 by dracken24        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int32	main(int32 argc, char **argv)
 	}
 
 	containers.SetContainers(argc, argv);
-	containers.PrintContainers();
-	containers.SortNumbers();
-	containers.PrintContainers();
 
-	uint32 nbr = -1;
-	std::cout << "uint: " << nbr << std::endl;
+	// Vector sort	
+	containers.SortVectorNumbers();
+
+	// List sort
+	containers.SortListNumbers();
 
 	return 0;
 }

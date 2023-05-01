@@ -6,7 +6,7 @@
 /*   By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 14:08:21 by dracken24         #+#    #+#             */
-/*   Updated: 2023/04/30 19:02:42 by dracken24        ###   ########.fr       */
+/*   Updated: 2023/05/01 13:37:28 by dracken24        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define T_MAGENTA "\033[35m"
 # define T_CYAN "\033[34m"
 # define T_WHITE "\033[37m"
+# define T_RESET "\033[0m"
 
 // int
 typedef int int32;
@@ -74,22 +75,18 @@ class PmergeMe
 		void	SetContainers(int32 argc, char **argv);
 
 	//**********************************************************************//
-	//**                     		GETTERS    	     		              **//
-	//**********************************************************************//
-
-
-
-	//**********************************************************************//
 	//**                          PUBLIC METHODS                          **//
 	//**********************************************************************//
 
 		void				PrintMesg(std::string errorMsg, std::string color, bl8 flag) const;
-		void				SortNumbers(void);
-		void				PrintContainers(void) const;
-
-		std::vector<uint32>	SortNbrs(std::vector<uint32> myVector, int i);
+		void				SortVectorNumbers(void);
+		void				SortListNumbers(void);
+		void				PrintVector(std::string color) const;
+		void				PrintList(std::string color) const;
 
 	private:
+		std::vector<uint32>	SortNbrsVector(std::vector<uint32> myVector, int i);
+		std::list<uint32>	SortNbrsList(std::list<uint32> myVector, int i);
 		void				CheckEntry(int32 argc, char **argv); 
 
 	//**********************************************************************//
