@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+        */
+/*   By: nadesjar <dracken24@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 14:15:18 by dracken24         #+#    #+#             */
-/*   Updated: 2023/05/01 14:06:51 by dracken24        ###   ########.fr       */
+/*   Updated: 2023/05/15 13:38:13 by nadesjar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ void	PmergeMe::SetContainers(int32 argc, char **argv)
 //**                          PUBLIC METHODS                          **//
 //**********************************************************************//
 
-static bool	IsDigit(std::string str)
+static bl8	IsDigit(std::string str)
 {
-	for (size_t i = 0; i < str.length(); i++)
+	for (s_t i = 0; i < str.length(); i++)
 	{
 		if (!isdigit(str[i]))
 		{
@@ -85,8 +85,21 @@ static bool	IsDigit(std::string str)
 	return true;
 }
 
+static bl8 IsSameVec(std::vector<uint32> myVector, uint32 nbr)
+{
+	for (s_t i = 0; i < myVector.size(); i++)
+	{
+		if (myVector[i] != nbr)
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
 // Sort Vector numbers from lesser to highter
-std::vector<uint32> PmergeMe::SortNbrsVector(std::vector<uint32> myVector, int i)
+std::vector<uint32> PmergeMe::SortNbrsVector(std::vector<uint32> myVector, int32 i)
 {
 	std::vector<uint32> A;
 	std::vector<uint32> B;
@@ -115,11 +128,14 @@ std::vector<uint32> PmergeMe::SortNbrsVector(std::vector<uint32> myVector, int i
 	// Recurssive SortNbrs with A and B until have less than 2 nbrs in array
 	if (A.size() >= 2)
 	{
-		if (A.size() > 2)
-			A = SortNbrsVector(A, ++i);
+		if (IsSameVec(A, A[0]) == false)
+		{
+			if (A.size() > 2)
+				A = SortNbrsVector(A, ++i);
+		}
 
 		// if 2 nbrs, swap nbrs if [0] is upper than [1] in A
-		if (A.at(0) > A.at(1) && A.size() == 2)
+		if (A.at(0) >= A.at(1) && A.size() == 2)
 		{
 			uint32 tmp = A.at(0);
 			A.at(0) = A.at(1);
@@ -128,11 +144,14 @@ std::vector<uint32> PmergeMe::SortNbrsVector(std::vector<uint32> myVector, int i
 	}
 	if (B.size() >= 2)
 	{
-		if (B.size() > 2)
-			B = SortNbrsVector(B, ++i);
+		if (IsSameVec(B, B[0]) == false)
+		{
+			if (B.size() > 2)
+				B = SortNbrsVector(B, ++i);
+		}
 
 		// if 2 nbrs, swap nbrs if [0] is upper than [1] in B
-		if (B.at(0) > B.at(1) && B.size() == 2)
+		if (B.at(0) >= B.at(1) && B.size() == 2)
 		{
 			uint32 tmp = B.at(0);
 			B.at(0) = B.at(1);
@@ -141,7 +160,7 @@ std::vector<uint32> PmergeMe::SortNbrsVector(std::vector<uint32> myVector, int i
 	}
 
 	// If A[0] is lower than B[B.Size - 1], = (A + B)
-	if (A.at(0) < B.at(B.size() - 1))
+	if (A.size() > 0 && A.at(0) < B.at(B.size() - 1))
 	{
 		for (s_t i = 0; i < B.size(); i++)
 		{
@@ -191,6 +210,21 @@ void PmergeMe::PrintVector(std::string color) const
 	std::cout << std::endl;
 }
 
+static bl8 IsSameList(std::list<uint32> myList, uint32 nbr)
+{
+	std::list<uint32>::iterator it = myList.begin();
+	for (; it != myList.end(); it++)
+	{
+		uint32 listNbr = *it;
+		if (listNbr != nbr)
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
 // Sort List numbers from lesser to highter
 std::list<uint32> PmergeMe::SortNbrsList(std::list<uint32> myList, int i)
 {
@@ -224,10 +258,13 @@ std::list<uint32> PmergeMe::SortNbrsList(std::list<uint32> myList, int i)
 	it = A.begin();
 	if (A.size() >= 2)
 	{
-		if (A.size() > 2)
-			A = SortNbrsList(A, ++i);
+		if (IsSameList(A, *it) == false)
+		{
+			if (A.size() > 2)
+				A = SortNbrsList(A, ++i);
+		}
 
-		if (*it > *++it && A.size() == 2)
+		if (*it >= *++it && A.size() == 2)
 		{
 			--it;
 			uint32 tmp = *it;
@@ -241,10 +278,13 @@ std::list<uint32> PmergeMe::SortNbrsList(std::list<uint32> myList, int i)
 	it = B.begin();
 	if (B.size() >= 2)
 	{
-		if (B.size() > 2)
+		if (IsSameList(B, *it) == false)
+		{
+			if (B.size() > 2)
 			B = SortNbrsList(B, ++i);
+		}
 
-		if (*it > *++it && B.size() == 2)
+		if (*it >= *++it && B.size() == 2)
 		{
 			--it;
 			uint32 tmp = *it;
@@ -259,7 +299,9 @@ std::list<uint32> PmergeMe::SortNbrsList(std::list<uint32> myList, int i)
 	it = A.begin();
 	std::list<uint32>::const_iterator it2 = B.begin();
 	// If A[0] is lower than B[B.Size - 1], = (A + B)
-	if (*it < *B.end())
+	std::list<uint32>::const_iterator val = B.end();
+	val--;
+	if (A.size() > 0 && *it < *val)
 	{
 		for (s_t i = 0; i < B.size(); i++)
 		{

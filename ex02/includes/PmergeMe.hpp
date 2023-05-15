@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dracken24 <dracken24@student.42.fr>        +#+  +:+       +#+        */
+/*   By: nadesjar <dracken24@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 14:08:21 by dracken24         #+#    #+#             */
-/*   Updated: 2023/05/01 13:37:28 by dracken24        ###   ########.fr       */
+/*   Updated: 2023/05/15 13:13:44 by nadesjar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ class PmergeMe
 		void				PrintList(std::string color) const;
 
 	private:
-		std::vector<uint32>	SortNbrsVector(std::vector<uint32> myVector, int i);
-		std::list<uint32>	SortNbrsList(std::list<uint32> myVector, int i);
+		std::vector<uint32>	SortNbrsVector(std::vector<uint32> myVector, int32 i);
+		std::list<uint32>	SortNbrsList(std::list<uint32> myVector, int32 i);
 		void				CheckEntry(int32 argc, char **argv); 
 
 	//**********************************************************************//
