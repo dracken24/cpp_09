@@ -201,7 +201,7 @@ void	PmergeMe::SortVectorNumbers(void)
 
 void PmergeMe::PrintVector(std::string color) const
 {
-	std::cout << color << "std::vector: ";
+	std::cout << color << "\nstd::vector: ";
 	for (s_t i = 0; i < _myVector.size(); i++)
 	{
 		std::cout << _myVector.at(i) << " ";
@@ -344,7 +344,7 @@ void	PmergeMe::SortListNumbers(void)
 
 void	PmergeMe::PrintList(std::string color) const
 {
-	std::cout << color << "std::list  : ";
+	std::cout << color << "\nstd::list  : ";
 	
 	std::list<uint32>::const_iterator it = _myList.begin();
 	for (; it != _myList.end(); it++)
